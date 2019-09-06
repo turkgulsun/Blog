@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Blog.WebUI.Areas.Admin.Controllers
 {
-    [Route("Home")]
+    //[Route("Home")]
     public class HomeController : Controller
     {
         private IClassService _classesService;
