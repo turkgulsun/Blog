@@ -11,7 +11,7 @@ namespace Blog.DataAccess.Concrete.EntityFramework
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //optionsBuilder.UseSqlServer("Data Source=DMGM0341311;Initial Catalog=BlogContext;User ID=sa;Password=dm8862.");
-            optionsBuilder.UseSqlServer("Server = tcp:devtt.database.windows.net,1433; Initial Catalog = BlogContext; Persist Security Info = False; User ID = usertt; Password = P@ssword1; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30");
+            optionsBuilder.UseSqlServer("Server = constant-system-237714:us-central1:sqlserver01; Initial Catalog = Blog; Persist Security Info = False; User ID = BlogUser; Password = tt8862.; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30");
         }
 
         public DbSet<ClassEntity> Classes { get; set; }

@@ -11,6 +11,9 @@ namespace Blog.DataAccess.Configurations
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Title).HasColumnType("nvarchar(100)").IsRequired();
             builder.Property(x => x.Summary).HasColumnType("nvarchar(250)").IsRequired(false);
+            builder.Property(x => x.MetaTitle).HasColumnType("nvarchar(250)").IsRequired(false);
+            builder.Property(x => x.MetaKeywords).HasColumnType("nvarchar(Max)").IsRequired(false);
+            builder.Property(x => x.MetaDescription).HasColumnType("nvarchar(Max)").IsRequired(false);
 
             builder
                 .HasOne(x => x.ClassEntity)

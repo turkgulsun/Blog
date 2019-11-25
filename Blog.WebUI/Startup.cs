@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Blog.Business.Abstract;
@@ -13,6 +14,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 
 namespace Blog.WebUI
 {
@@ -25,6 +27,10 @@ namespace Blog.WebUI
             //Classes
             services.AddScoped<IClassService, ClassManager>();
             services.AddScoped<IClassesDal, EfClassesDal>();
+
+            //ClassLanguage
+            services.AddScoped<IClassLanguageService, ClassLanguageManager>();
+            services.AddScoped<IClassLanguageDal, EfClassLanguageDal>();
 
             services.AddMvc();
             //services.AddMvc().AddFluentValidation();
@@ -39,15 +45,31 @@ namespace Blog.WebUI
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvcWithDefaultRoute();
-        }
-        private void ConfigureRoutes(IRouteBuilder routeBuilder)
-        {
-            routeBuilder.MapRoute(
-              name: "admin",
-              template: "{area:admin}/{controller=Home}/{action=Index}/{id?}");
+            app.UseStaticFiles(); // For the wwwroot folder
 
-            routeBuilder.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), "Content")),
+                RequestPath = "/content"
+            });
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "areas",
+                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+                //Default Route
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
+            //app.UseMvcWithDefaultRoute();
         }
+        //private void ConfigureRoutes(IRouteBuilder routeBuilder)
+        //{
+        //    routeBuilder.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
+        //}
     }
 }

@@ -1,0 +1,103 @@
+﻿@model Blog.WebUI.Areas.Admin.Models.ClassViewModel.ClassVM
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/_Layout.cshtml";
+}
+
+<form asp-controller="admin" asp-action="create" method="post">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="demo-form-wrapper">
+                <hr />
+                <div class="tab-content">
+                    <div class="row">
+                        <div class="form form-horizontal">
+                            <div class="form-group">
+                                <label asp-for="ClassLanguage.Title" class="control-label col-md-2"></label>
+                                <div class="col-sm-10">
+                                    <input asp-for="ClassLanguage.Title" class="form-control" placeholder="Title" />
+                                    <span asp-validation-for="ClassLanguage.Title" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ClassLanguage.Summary" class="control-label col-md-2"></label>
+                                <div class="col-sm-10">
+                                    <input asp-for="ClassLanguage.Summary" class="form-control" placeholder="Summary" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ClassLanguage.MetaTitle" class="control-label col-md-2"></label>
+                                <div class="col-sm-10">
+                                    <input asp-for="ClassLanguage.MetaTitle" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ClassLanguage.MetaKeywords" class="control-label col-md-2"></label>
+                                <div class="col-sm-10">
+                                    <input asp-for="ClassLanguage.MetaKeywords" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ClassLanguage.MetaDescription" class="control-label col-md-2"></label>
+                                <div class="col-sm-10">
+                                    <input asp-for="ClassLanguage.MetaDescription" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ClassEntity.Image" class="control-label col-md-2"></label>
+                                <div class="col-sm-10">
+                                    <input asp-for="ClassEntity.Image" class="form-control" type="file" name="uploadFile" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ClassEntity.Active" class="control-label col-md-2"></label>
+                                <div class="col-sm-10">
+                                    <input asp-for="ClassEntity.Active" class="form-control" type="checkbox" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ClassEntity.Sort" class="control-label col-md-2"></label>
+                                <div class="col-sm-10">
+                                    <input asp-for="ClassEntity.Sort" class="form-control" type="number" />
+                                </div>
+                            </div>
+                            @Html.HiddenFor(model => model.ClassEntity.ClassTypeId)
+                            @Html.HiddenFor(model => model.ClassEntity.ParentId)
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Oluştur" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    @*<div class="form-group">
+            <label asp-for="Products.ProductName"></label>
+            <input asp-for="Products.ProductName" class="form-control" placeholder="Product Name" />
+            <span asp-validation-for="Products.ProductName"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Products.CategoryId"></label>
+            <select asp-for="Products.CategoryId" class="form-control" asp-items="@(new SelectList(Model.Categories,"CategoryId","CategoryName"))"></select>
+            <span asp-validation-for="Products.CategoryId"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Products.UnitPrice"></label>
+            <input asp-for="Products.UnitPrice" class="form-control" placeholder="Unit Price" />
+            <span asp-validation-for="Products.UnitPrice"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Products.UnitsInStock"></label>
+            <input asp-for="Products.UnitsInStock" class="form-control" placeholder="Unit In Stock" />
+            <span asp-validation-for="Products.UnitsInStock"></span>
+        </div>
+        <input type="submit" value="Add" class="btn btn-xs btn-success" />*@
+</form>
+

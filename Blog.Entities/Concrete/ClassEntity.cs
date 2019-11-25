@@ -10,9 +10,12 @@ namespace Blog.Entities.Concrete
     public class ClassEntity : IEntity
     {
         public int Id { get; set; }
+        public int ParentId { get; set; }
         public int Sort { get; set; }
         public bool Active { get; set; }
+        public string Image { get; set; }
         public DateTime CreationDate { get; set; }
+
 
         public bool IsDeleted { get; set; }
         public DateTime? DeletionDate { get; set; }

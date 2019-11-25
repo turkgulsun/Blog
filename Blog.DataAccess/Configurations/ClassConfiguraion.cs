@@ -11,8 +11,10 @@ namespace Blog.DataAccess.Configurations
             builder.ToTable("Class");
             builder.HasKey(x => x.Id);
 
+            builder.Property(x => x.ParentId).IsRequired();
             builder.Property(x => x.Sort).IsRequired();
             builder.Property(x => x.Active).IsRequired();
+            builder.Property(x => x.Image).IsRequired(false);
             builder.Property(x => x.CreationDate).HasColumnType("datetime").IsRequired();
 
             builder.Property(x => x.IsDeleted).IsRequired();
