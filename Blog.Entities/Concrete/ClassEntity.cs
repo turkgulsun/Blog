@@ -1,4 +1,4 @@
-﻿using Blog.Core.Entities;
+﻿using Blog.SqlServer.EntityFrameworkCore.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,8 +6,8 @@ using System.Text;
 namespace Blog.Entities.Concrete
 {
     //Veri tabanı nesnesi olduğunu belirtmemiz lazım.
-    //IEntity'den implemante ediyoruz.
-    public class ClassEntity : IEntity
+    
+    public class ClassEntity : IEntityFramework
     {
         public int Id { get; set; }
         public int ParentId { get; set; }
@@ -15,7 +15,6 @@ namespace Blog.Entities.Concrete
         public bool Active { get; set; }
         public string Image { get; set; }
         public DateTime CreationDate { get; set; }
-
 
         public bool IsDeleted { get; set; }
         public DateTime? DeletionDate { get; set; }

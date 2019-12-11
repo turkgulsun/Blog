@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Blog.Core\Blog.Core.csproj" />
+    <ProjectReference Include="..\Blog.SqlServer.EntityFrameworkCore\Blog.SqlServer.EntityFrameworkCore.csproj" />
   </ItemGroup>
 
 </Project>

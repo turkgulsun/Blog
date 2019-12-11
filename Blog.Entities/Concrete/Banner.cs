@@ -1,11 +1,11 @@
-﻿using Blog.Core.Entities;
+﻿using Blog.SqlServer.EntityFrameworkCore.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Blog.Entities.Concrete
 {
-    public class Banner : IEntity
+    public class Banner : IEntityFramework
     {
         public int Id { get; set; }
         public int Sort { get; set; }

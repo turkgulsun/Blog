@@ -8,17 +8,22 @@ namespace Blog.DataAccess.Concrete.EntityFramework
 {
     public class BlogContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("Server = sqlserver-2.database.windows.net; Initial Catalog = BlogContext; Persist Security Info = False; User ID = SqlServerUser; Password = P@ssword1; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30");
+        //}
+
+
+        public BlogContext(DbContextOptions options)
+               : base(options)
         {
-            //optionsBuilder.UseSqlServer("Data Source=DMGM0341311;Initial Catalog=BlogContext;User ID=sa;Password=dm8862.");
-            optionsBuilder.UseSqlServer("Server = constant-system-237714:us-central1:sqlserver01; Initial Catalog = Blog; Persist Security Info = False; User ID = BlogUser; Password = tt8862.; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30");
         }
 
         public DbSet<ClassEntity> Classes { get; set; }
         public DbSet<ClassLanguage> ClassLanguages { get; set; }
         public DbSet<ClassType> ClassTypes { get; set; }
         public DbSet<Content> Contents { get; set; }
-        public DbSet<ContentLanguage> ContentLanguages{ get; set; }
+        public DbSet<ContentLanguage> ContentLanguages { get; set; }
         public DbSet<Language> Languages { get; set; }
         public DbSet<Banner> Banners { get; set; }
         public DbSet<BannerLanguage> BannerLanguages { get; set; }

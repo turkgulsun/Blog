@@ -1,9 +1,9 @@
-﻿using Blog.Core.Entities;
+﻿using Blog.SqlServer.EntityFrameworkCore.Abstractions;
 using System.Collections.Generic;
 
 namespace Blog.Entities.Concrete
 {
-    public class Language : IEntity
+    public class Language : IEntityFramework
     {
         public int Id { get; set; }
         public string Name { get; set; }

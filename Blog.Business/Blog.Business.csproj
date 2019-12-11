@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Blog.DataAccess\Blog.DataAccess.csproj" />
+    <ProjectReference Include="..\Blog.SqlServer.EntityFrameworkCore\Blog.SqlServer.EntityFrameworkCore.csproj" />
   </ItemGroup>
 
 </Project>

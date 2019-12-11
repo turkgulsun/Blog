@@ -7,6 +7,7 @@ using Blog.Business.Abstract;
 using Blog.Business.Concrete;
 using Blog.DataAccess.Abstract;
 using Blog.DataAccess.Concrete.EntityFramework;
+using Blog.WebUI.Extensions;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,16 +25,15 @@ namespace Blog.WebUI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddBlogServices();
+
             //Classes
             services.AddScoped<IClassService, ClassManager>();
-            services.AddScoped<IClassesDal, EfClassesDal>();
 
-            //ClassLanguage
-            services.AddScoped<IClassLanguageService, ClassLanguageManager>();
-            services.AddScoped<IClassLanguageDal, EfClassLanguageDal>();
 
+            //Mvc
             services.AddMvc();
-            //services.AddMvc().AddFluentValidation();
 
         }
 
@@ -56,9 +56,15 @@ namespace Blog.WebUI
 
             app.UseMvc(routes =>
             {
+                //Admin Default Route
                 routes.MapRoute(
                     name: "areas",
                     template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+                //Admin/Class Route
+                routes.MapRoute(
+                    name: "areasClass",
+                    template: "{area:exists}/{controller=Class}/{action=Index}/{id:int?}/{classId:int?}/{classTypeId:int?}");
 
                 //Default Route
                 routes.MapRoute(

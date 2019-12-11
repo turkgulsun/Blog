@@ -10,8 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Blog.Core\Blog.Core.csproj" />
     <ProjectReference Include="..\Blog.Entities\Blog.Entities.csproj" />
+    <ProjectReference Include="..\Blog.SqlServer.EntityFrameworkCore\Blog.SqlServer.EntityFrameworkCore.csproj" />
   </ItemGroup>
 
   <ItemGroup>

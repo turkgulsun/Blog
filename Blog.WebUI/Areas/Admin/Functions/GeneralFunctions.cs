@@ -1,5 +1,5 @@
 ﻿using Blog.Business.Abstract;
-using Blog.WebUI.Areas.Admin.Models.ListVM;
+using Blog.WebUI.Areas.Admin.Models.ListViewModel;
 using System;
 using System.Collections.Generic;
 using System.IO;

@@ -1,4 +1,5 @@
-﻿using Blog.Entities.Concrete;
+﻿using Blog.Business.DTOs;
+using Blog.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -8,12 +9,10 @@ namespace Blog.Business.Abstract
 {
     public interface IClassService
     {
-        List<ClassEntity> GetAll();
-        ClassEntity Get(Expression<Func<ClassEntity, bool>> filter = null);
-        ClassEntity GetById(int classId);
-        void Add(ClassEntity classEntity);
-        void Update(ClassEntity classEntity);
-        void Delete(int classId);
-        
+        List<ClassDTO> GetAll();
+        ClassDTO Get(int classId);
+        void Add(ClassEntity classEntity, ClassLanguage classLanguage);
+        void Update(ClassEntity classEntity, ClassLanguage classLanguage);
+        void Delete(ClassEntity classEntity, ClassLanguage classLanguage);
     }
 }

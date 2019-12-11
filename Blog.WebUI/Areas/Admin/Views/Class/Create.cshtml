@@ -4,7 +4,7 @@
     Layout = "~/Areas/Admin/Views/_Layout.cshtml";
 }
 
-<form asp-controller="admin" asp-action="create" method="post">
+<form asp-controller="class" asp-action="create" method="post">
     <div class="row">
         <div class="col-lg-8">
             <div class="demo-form-wrapper">
@@ -28,19 +28,19 @@
                             <div class="form-group">
                                 <label asp-for="ClassLanguage.MetaTitle" class="control-label col-md-2"></label>
                                 <div class="col-sm-10">
-                                    <input asp-for="ClassLanguage.MetaTitle" class="form-control" />
+                                    <textarea asp-for="ClassLanguage.MetaTitle" class="form-control" rows="3" placeholder="Meta Title"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label asp-for="ClassLanguage.MetaKeywords" class="control-label col-md-2"></label>
                                 <div class="col-sm-10">
-                                    <input asp-for="ClassLanguage.MetaKeywords" class="form-control" />
+                                    <textarea asp-for="ClassLanguage.MetaKeywords" class="form-control" rows="3" placeholder="Meta Keywords"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label asp-for="ClassLanguage.MetaDescription" class="control-label col-md-2"></label>
                                 <div class="col-sm-10">
-                                    <input asp-for="ClassLanguage.MetaDescription" class="form-control" />
+                                    <textarea asp-for="ClassLanguage.MetaDescription" class="form-control" rows="3" placeholder="Meta Description"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -52,7 +52,9 @@
                             <div class="form-group">
                                 <label asp-for="ClassEntity.Active" class="control-label col-md-2"></label>
                                 <div class="col-sm-10">
-                                    <input asp-for="ClassEntity.Active" class="form-control" type="checkbox" />
+                                    <label>
+                                        <input asp-for="ClassEntity.Active"  type="checkbox" />
+                                    </label>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -65,7 +67,7 @@
                             @Html.HiddenFor(model => model.ClassEntity.ParentId)
                             <div class="form-group">
                                 <div class="col-md-offset-2 col-md-10">
-                                    <input type="submit" value="Oluştur" class="btn btn-default" />
+                                    <input type="submit" value="Create" class="btn btn-default" />
                                 </div>
                             </div>
                         </div>
@@ -74,30 +76,5 @@
             </div>
         </div>
     </div>
-
-
-
-
-    @*<div class="form-group">
-            <label asp-for="Products.ProductName"></label>
-            <input asp-for="Products.ProductName" class="form-control" placeholder="Product Name" />
-            <span asp-validation-for="Products.ProductName"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="Products.CategoryId"></label>
-            <select asp-for="Products.CategoryId" class="form-control" asp-items="@(new SelectList(Model.Categories,"CategoryId","CategoryName"))"></select>
-            <span asp-validation-for="Products.CategoryId"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="Products.UnitPrice"></label>
-            <input asp-for="Products.UnitPrice" class="form-control" placeholder="Unit Price" />
-            <span asp-validation-for="Products.UnitPrice"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="Products.UnitsInStock"></label>
-            <input asp-for="Products.UnitsInStock" class="form-control" placeholder="Unit In Stock" />
-            <span asp-validation-for="Products.UnitsInStock"></span>
-        </div>
-        <input type="submit" value="Add" class="btn btn-xs btn-success" />*@
 </form>
 

@@ -1,11 +1,11 @@
-﻿using Blog.Core.Entities;
+﻿using Blog.SqlServer.EntityFrameworkCore.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Blog.Entities.Concrete
 {
-    public class Menu : IEntity
+    public class Menu : IEntityFramework
     {
         public int Id { get; set; }
         public int? ParentId { get; set; }

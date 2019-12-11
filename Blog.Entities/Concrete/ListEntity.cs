@@ -1,11 +1,11 @@
-﻿using Blog.Core.Entities;
+﻿using Blog.SqlServer.EntityFrameworkCore.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Blog.Entities.Concrete
 {
-    public class ListEntity : IEntity
+    public class ListEntity : IEntityFramework
     {
         public int Id { get; set; }
         public string Type { get; set; }

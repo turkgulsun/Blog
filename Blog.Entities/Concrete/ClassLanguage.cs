@@ -1,10 +1,10 @@
-﻿using Blog.Core.Entities;
+﻿using Blog.SqlServer.EntityFrameworkCore.Abstractions;
 using System;
 using System.Text;
 
 namespace Blog.Entities.Concrete
 {
-    public class ClassLanguage:IEntity
+    public class ClassLanguage:IEntityFramework
     {
         public int Id { get; set; }
         public string Title { get; set; }
