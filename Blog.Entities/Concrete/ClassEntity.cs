@@ -1,12 +1,14 @@
 ﻿using Blog.SqlServer.EntityFrameworkCore.Abstractions;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Blog.Entities.Concrete
 {
     //Veri tabanı nesnesi olduğunu belirtmemiz lazım.
-    
+
+    [Table("Class")]
     public class ClassEntity : IEntityFramework
     {
         public int Id { get; set; }
@@ -24,5 +26,10 @@ namespace Blog.Entities.Concrete
 
         public ICollection<ClassLanguage> Languages { get; set; }
         public ICollection<Content> Contents { get; set; }
+
+        public ClassEntity()
+        {
+            Languages = new List<ClassLanguage>();
+        }
     }
 }

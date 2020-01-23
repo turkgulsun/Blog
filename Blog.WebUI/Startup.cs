@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Blog.Business.Abstract;
 using Blog.Business.Concrete;
 using Blog.DataAccess.Abstract;
 using Blog.DataAccess.Concrete.EntityFramework;
+using Blog.WebUI.AutoMapper;
 using Blog.WebUI.Extensions;
+using Blog.WebUI.Middlewares;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,13 +28,13 @@ namespace Blog.WebUI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddBlogServices();
 
             //Classes
             services.AddScoped<IClassService, ClassManager>();
-
-
+            //ClassTypes
+            services.AddScoped<IClassTypeService, ClassTypeManager>();
+            
             //Mvc
             services.AddMvc();
 
@@ -47,11 +50,20 @@ namespace Blog.WebUI
 
             app.UseStaticFiles(); // For the wwwroot folder
 
+            app.UseNodeModules(env.ContentRootPath);
+
             app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(
                     Path.Combine(Directory.GetCurrentDirectory(), "Content")),
                 RequestPath = "/content"
+            });
+
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), "Uploads")),
+                RequestPath = "/uploads"
             });
 
             app.UseMvc(routes =>
@@ -61,10 +73,10 @@ namespace Blog.WebUI
                     name: "areas",
                     template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
-                //Admin/Class Route
-                routes.MapRoute(
-                    name: "areasClass",
-                    template: "{area:exists}/{controller=Class}/{action=Index}/{id:int?}/{classId:int?}/{classTypeId:int?}");
+                ////Admin/Class Route
+                //routes.MapRoute(
+                //    name: "areasClass",
+                //    template: "{area:exists}/{controller=Class}/{action=Index}/{id:int?}/{classTypeId:int?}");
 
                 //Default Route
                 routes.MapRoute(

@@ -12,5 +12,10 @@ namespace Blog.Entities.Concrete
         public string Description { get; set; }
 
         public ICollection<ClassEntity> Classes { get; set; }
+
+        public ClassType()
+        {
+            Classes = new List<ClassEntity>();
+        }
     }
 }

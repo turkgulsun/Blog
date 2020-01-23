@@ -1,4 +1,5 @@
-﻿using Blog.Entities.Concrete;
+﻿using Blog.Business.DTOs;
+using Blog.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -8,7 +9,6 @@ namespace Blog.Business.Abstract
 {
     public interface IClassTypeService
     {
-        List<ClassType> GetAll();
-        ClassType Get(Expression<Func<ClassType, bool>> filter = null);
+        List<ClassTypeDTO> GetAll();
     }
 }

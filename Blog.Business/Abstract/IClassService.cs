@@ -10,9 +10,9 @@ namespace Blog.Business.Abstract
     public interface IClassService
     {
         List<ClassDTO> GetAll();
-        ClassDTO Get(int classId);
-        void Add(ClassEntity classEntity, ClassLanguage classLanguage);
-        void Update(ClassEntity classEntity, ClassLanguage classLanguage);
-        void Delete(ClassEntity classEntity, ClassLanguage classLanguage);
+        ClassDTO GetById(int classId);
+        void Add(ClassDTO classDTO);
+        void Update(ClassDTO classDTO);
+        void Delete(ClassDTO classDTO);
     }
 }

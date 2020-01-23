@@ -1,0 +1,30 @@
+﻿@model List<Blog.WebUI.Areas.Admin.Models.ClassTypeViewModel.ClassTypeListVM>
+<li class="sidenav-item has-subnav">
+    <a href="#" aria-haspopup="true">
+        <span class="sidenav-icon icon icon-briefcase"></span>
+        <span class="sidenav-label">Class Types</span>
+    </a>
+    <ul class="sidenav-subnav collapse">
+        @foreach (var item in Model)
+        {
+            <li><a href="@Url.Action("index","class",new {id = 0, classTypeId = item.Id})">@item.Type</a></li>
+        }
+        @*<li class="sidenav-subheading">UI Elements</li>
+            <li><a href="arrows.html">Arrows</a></li>
+            <li><a href="badges.html">Badges</a></li>
+            <li><a href="buttons.html">Buttons</a></li>
+            <li><a href="cards.html">Cards</a></li>
+            <li><a href="dividers.html">Dividers</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li><a href="flags.html">Flags</a></li>
+            <li><a href="grid-system.html">Grid system</a></li>
+            <li><a href="icons.html">Icons</a></li>
+            <li><a href="labels.html">Labels</a></li>
+            <li><a href="lists.html">Lists</a></li>
+            <li><a href="pricing-cards.html">Pricing cards</a></li>
+            <li><a href="progress-bars.html">Progress bars</a></li>
+            <li><a href="spinners.html">Spinners</a></li>
+            <li><a href="toastr.html">Toastr</a></li>
+            <li><a href="typography.html">Typography</a></li>*@
+    </ul>
+</li>
